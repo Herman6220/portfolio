@@ -1,7 +1,7 @@
 'use client'
-import {useRef} from "react";
+import { useEffect, useRef, useState } from "react";
 import MatrixRain from "./components/MatrixRain";
-import {FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useToast } from "./hooks/useToast";
 import Link from "next/link";
@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <>
       <div className="w-full h-[100vh] flex gap-4 items-start justify-between relative">
-        <div className="flex flex-col justify-center h-full w-3/4 sm:px-20 px-4">
+        <div className="flex flex-col justify-center h-full w-3/4 sm:pl-20 pl-8 pb-36">
           <div>
             <p className="text-sm text-green-200 font-shareTech">I&apos;m a</p>
             <h1 className="text-2xl sm:text-4xl text-green-200 font-shareTech">Software Developer</h1>
@@ -54,14 +54,24 @@ export default function Home() {
               <p className="font-shareTech text-sm sm:text-md text-green-200" style={{ textShadow: "0 0 5px #0f0" }}>sankalpkrpoddar000@gmail.com</p>
               <Link href="#contact-section">
                 <button
-                  className="w-40 h-10 text-green-200 font-shareTech rounded-full bg-gradient-to-b from-red-800 via-red-900/20 to-red-700/50 cursor-pointer"
-                  style={{ boxShadow: "0 10px 100px 0px rgba(255, 0, 0, 0.7), 0 20px 50px -16px #f00", textShadow: "0 0 5px #0f0" }}
+                  className="shad w-40 h-10 text-green-200 font-shareTech rounded-full bg-gradient-to-b from-red-800 via-red-900/20 to-red-700/50 cursor-pointer transition-normal duration-300"
+                  style={{ textShadow: "0 0 5px #0f0" }}
                 >Get in touch</button>
               </Link>
+              <style>
+                {`
+                  .shad{
+                    box-shadow: 0 10px 100px 0px rgba(255, 0, 0, 0.7), 0 20px 50px -16px #f00;
+                  }
+                  .shad:hover{
+                    box-shadow: 0 10px 100px 5px rgba(255, 0, 0, 0.7), 0 20px 70px -12px #f00;
+                  }
+                `}
+              </style>
             </div>
-            <div className="flex gap-4 mt-4">
+            <div className="flex gap-4 mt-8 sm:mt-4">
               <Link href="https://github.com/Herman6220" className="cursor-pointer"><FaGithub className="text-green-300 size-6 sm:size-9" /></Link>
-              <Link href="www.linkedin.com/in/sankalp6220"><FaLinkedin className="text-green-300 size-6 sm:size-9" /></Link>
+              <Link href="https://linkedin.com/in/sankalp6220"><FaLinkedin className="text-green-300 size-6 sm:size-9" /></Link>
               <Link href="https://x.com/sankalp6220"><FaTwitter className="text-green-300 size-6 sm:size-9" /></Link>
             </div>
           </div>
@@ -69,7 +79,7 @@ export default function Home() {
         <div
           ref={containerRef}
           className="h-full w-1/4 relative">
-          <MatrixRain containerRef={containerRef}/>
+          {/* <MatrixRain containerRef={containerRef} /> */}
           <div className="absolute bottom-0 h-full w-full bg-gradient-to-b from-transparent via-transparent to-[#000000]"></div>
         </div>
       </div>
@@ -100,7 +110,7 @@ export default function Home() {
                 transform-origin="center"
                 vectorEffect="non-scaling-stroke"
               />
-        {/* //lower chips */}
+              {/* //lower chips */}
               <polygon points="37,100 34.6,96.2 36.6,96.2 39,100" fill="#7bf1a8" />
               <polygon points="34,100 31.6,96.2 33.6,96.2 36,100" fill="#7bf1a8" />
               <polygon points="31,100 28.6,96.2 30.6,96.2 33,100" fill="#7bf1a8" />
@@ -112,7 +122,7 @@ export default function Home() {
               <polygon points="13,100 10.6,96.2 12.6,96.2 15,100" fill="#7bf1a8" />
               <polygon points="10,100 7.6,96.2 9.6,96.2 12,100" fill="#7bf1a8" />
 
-            {/* //upper chips */}
+              {/* //upper chips */}
               <polygon points="61,0 63.4,3.8 65.4,3.8 63,0" fill="#7bf1a8" />
               <polygon points="64,0 66.4,3.8 68.4,3.8 66,0" fill="#7bf1a8" />
               <polygon points="67,0 69.4,3.8 71.4,3.8 69,0" fill="#7bf1a8" />
@@ -126,7 +136,7 @@ export default function Home() {
 
 
             </svg>
-            <div className="absolute sm:top-14 -top-3 -left-10 sm:left-14 sm:w-120 sm:h-66 scale-62 sm:scale-100">
+            <div className="absolute sm:top-14 -top-2 -left-8 sm:left-14 sm:w-120 sm:h-66 scale-66 sm:scale-100">
               <svg viewBox="0 0 120 66" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                 <defs>
                   <pattern id="bias" patternUnits="userSpaceOnUse" width="120" height="66">
@@ -143,17 +153,27 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <div className="absolute top-6 sm:top-13 left-54 sm:left-140 w-28 sm:w-72 sm:h-72">
-              <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Hermano.</h1>
-              <h2 className="font-shareTech text-xs sm:text-lg text-green-200">service provider app</h2>
+            <div className="absolute top-4 sm:top-13 left-58 sm:left-140 w-28 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-4">
+              <div>
+                <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Hermano.</h1>
+                <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200">service provider app</h2>
+              </div>
               <div className="w-full h-full sm:h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
                 <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Next.js, MongoDB, NextAuth, Razorpay </p>
+              </div>
+              <div className="flex flex-col gap-1 sm:gap-2">
+                <Link href="https://hermano-nu.vercel.app/">
+                  <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Visit</div>
+                </Link>
+                <Link href="https://github.com/Herman6220/Hermano">
+                  <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Repository</div>
+                </Link>
               </div>
             </div>
 
           </div>
-          <div className="w-full sm:w-2/5 h-full">
-            <div className="w-full sm:h-1/2 h-40 sm:p-2">
+          <div className="w-full sm:w-2/5 h-full relative">
+            <div className="w-full sm:h-1/2 h-40 sm:p-2 relative">
               <svg
                 viewBox="0 0 101 102"
                 className="w-full h-full"
@@ -176,8 +196,42 @@ export default function Home() {
                 <polygon points="1,50 1,6 2.5,2 29.8,2 30.2,3 2.8,3 1.5,6 1.5,49" fill="none" stroke="#7bf1a8" strokeWidth="1" vectorEffect="non-scaling-stroke" />
                 <polygon points="31,0 32.4,3.4 46.4,3.4 48.5,8.6 51.2,8.6 48,0" fill="#7bf1a8" />
               </svg>
+              <div className="absolute -top-3 -left-12 sm:top-12 sm:left-8 sm:w-80 h-48 scale-60 sm:scale-100 ">
+                <svg
+                  viewBox="0 0 80 48"
+                  className="w-full h-full"
+                  preserveAspectRatio="none"
+                >
+                  <polygon
+                    points="0,4 4,0 76,0 80,4 80,44 76,48 4,48 0,44"
+                    fill="none"
+                    stroke="#7bf1a8"
+                    strokeWidth="1"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
+              </div>
+
+              <div className="absolute top-6 left-56 sm:top-12 sm:left-94 w-30 h-30 sm:w-44 sm:h-48 flex flex-col gap-2 sm:gap-4 ">
+                <div>
+                  <h1 className="font-shareTech font-black text-sm sm:text-base text-green-200">Project 2</h1>
+                  <h2 className="font-shareTech text-[10px] sm:text-sm text-green-200">project desc</h2>
+                </div>
+                <div className="w-full h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
+                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Tech stack</p>
+                </div>
+                <div className="flex flex-col gap-1 sm:gap-2">
+                  <Link href="#">
+                    <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Visit</div>
+                  </Link>
+                  <Link href="#">
+                    <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Repository</div>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className="w-full sm:h-1/2 h-40 sm:p-2 mt-4 sm:mt-0">
+
+            <div className="w-full sm:h-1/2 h-40 sm:p-2 mt-4 sm:mt-0 relative">
               <svg
                 viewBox="0 0 100 100"
                 className="w-full h-full"
@@ -201,7 +255,41 @@ export default function Home() {
                 <polygon points="0,20 0,15 0,10 4,0 16,0 17,2.5 5.2,2.5 1.2,12.5 1.2,22" fill="#7bf1a8" />
                 <polygon points="86,100 92,100 96,92.5 96,87.5 100,80 100,70 98,65 98,78.5 89,95 84,95" fill="#7bf1a8" />
               </svg>
+
+              <div className="absolute -top-5 -left-11 sm:top-10 sm:left-10 scale-60 sm:scale-100 w-80 h-48  ">
+                <svg
+                  viewBox="0 0 80 48"
+                  className="w-full h-full"
+                  preserveAspectRatio="none"
+                >
+                  <polygon
+                    points="0,4 4,0 76,0 80,4 80,44 76,48 4,48 0,44"
+                    fill="none"
+                    stroke="#7bf1a8"
+                    strokeWidth="1"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
+              </div>
+              <div className="absolute top-4 left-56 sm:top-10 sm:left-94 w-30 h-30 sm:w-44 sm:h-40 flex flex-col gap-2 sm:gap-3 scale-100">
+                <div>
+                  <h1 className="font-shareTech font-black text-sm sm:text-base text-green-200">Project 3</h1>
+                  <h2 className="font-shareTech text-[10px] sm:text-sm text-green-200">project desc</h2>
+                </div>
+                <div className="w-full h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
+                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Tech stack</p>
+                </div>
+                <div className="flex flex-col gap-1 sm:gap-2">
+                  <Link href="#">
+                    <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Visit</div>
+                  </Link>
+                  <Link href="#">
+                    <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Repository</div>
+                  </Link>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -454,7 +542,7 @@ export default function Home() {
         </div>
       </div>
       {/* about section */}
-      <div id="about-section" className="w-full h-[60vh] pt-20 p-4 flex items-center justify-center">
+      <div id="about-section" className="w-full h-120 sm:h-[60vh] pt-20 p-4 flex items-center justify-center relative">
         <svg
           className="w-full h-full"
         >
@@ -467,6 +555,20 @@ export default function Home() {
             strokeDasharray="12 4"
           />
         </svg>
+        <div className="absolute flex flex-col gap-2 sm:gap-4 top-24 left-8 w-78 sm:w-364 sm:h-77 font-shareTech text-green-200 sm:p-4">
+          <p>
+            I&apos;m <span className="text-xl sm:text-3xl font-bold text-green-300 ">Sankalp</span>
+          </p>
+          <p className="text-xs sm:text-base">
+             — a developer driven by curiosity, creativity, and the thrill of problem-solving. I thrive on building things that feel alive on the web — experiences that aren’t just functional, but engaging and impactful.
+          </p>
+          <p className="text-xs sm:text-base">
+            What excites me most is taking an idea and transforming it into something tangible, whether that’s a polished interface, a seamless interaction, or a system that works quietly but powerfully in the background. I’m constantly experimenting, pushing boundaries, and finding smarter ways to make technology feel effortless.
+          </p>
+          <p className="text-xs sm:text-base">
+            I approach my work with adaptability and ambition — quick to learn, unafraid of challenges, and always focused on crafting solutions that stand out. For me, coding isn’t just about writing logic; it’s about shaping experiences that leave a mark.
+          </p>
+        </div>
       </div>
       {/* 4th page */}
       <div className="h-full py-10 pt-20" id="contact-section">
@@ -480,6 +582,8 @@ export default function Home() {
                   {`
                 .appear{
                   animation: growLine 2s;
+                  animation-timeline: view();
+                  animation-range: entry 20% exit 50%;
                 }
                 @keyframes growLine{
                   from{
@@ -495,7 +599,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                 <Link href="https://github.com/Herman6220" className="cursor-pointer"><FaGithub className="text-green-300 size-6 sm:size-9" /></Link>
-                <Link href="www.linkedin.com/in/sankalp6220"><FaLinkedin className="text-green-300 size-6 sm:size-9" /></Link>
+                <Link href="https://linkedin.com/in/sankalp6220"><FaLinkedin className="text-green-300 size-6 sm:size-9" /></Link>
                 <Link href="https://x.com/sankalp6220"><FaTwitter className="text-green-300 size-6 sm:size-9" /></Link>
               </div>
             </div>

@@ -10,10 +10,10 @@ export default function Navbar(){
                     <h1 className="italic font-black text-xl font-shareTech text-green-200"></h1>
                 </div>
                 <div className="flex sm:gap-14 gap-4">
-                    <Link href='#about-section' className="nav-link text-sm text-green-200 font-shareTech">About</Link>
-                    <Link href='#skills-section' className="nav-link text-sm text-green-200 font-shareTech">Skills</Link>
-                    <Link href='#projects-section' className="nav-link text-sm text-green-200 font-shareTech">Projects</Link>
-                    <Link href='#contact-section' className="nav-link text-sm text-green-200 font-shareTech">Contact</Link>
+                    <Link href='#about-section' className="nav-link text-sm text-green-200 font-shareTech transition-normal duration-300">About</Link>
+                    <Link href='#skills-section' className="nav-link text-sm text-green-200 font-shareTech transition-normal duration-300">Skills</Link>
+                    <Link href='#projects-section' className="nav-link text-sm text-green-200 font-shareTech transition-normal duration-300">Projects</Link>
+                    <Link href='#contact-section' className="nav-link text-sm text-green-200 font-shareTech transition-normal duration-300">Contact</Link>
                 </div>
                 <style>
                     {`
