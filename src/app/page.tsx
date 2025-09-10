@@ -16,10 +16,10 @@ export default function Home() {
     message: string
   }
 
+  const [text, setText] = useState("Software Developer");
+  const animating = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
   const { showToast } = useToast();
-
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>();
 
 
@@ -42,6 +42,29 @@ export default function Home() {
     }
   }
 
+  const scrambleText = (text: string) => {
+    if (animating.current) return;
+    animating.current = true;
+
+    let randomChars = "!@#$%^&*_+=-<>";
+    let iterations = 0;
+
+    const step = () => {
+      setText(
+        text.split("").map((char, index) => {
+          if (char === " ") return " ";
+          return index < iterations
+            ? char
+            : randomChars[Math.floor(Math.random() * randomChars.length)];
+        }).join(""));
+
+      if (iterations++ < text.length) setTimeout(step, 50);
+      else animating.current = false;
+    };
+
+    step();
+  }
+
 
   return (
     <>
@@ -49,7 +72,7 @@ export default function Home() {
         <div className="flex flex-col justify-center h-full w-3/4 sm:pl-20 pl-8 pb-36">
           <div>
             <p className="text-sm text-green-200 font-shareTech">I&apos;m a</p>
-            <h1 className="text-2xl sm:text-4xl text-green-200 font-shareTech">Software Developer</h1>
+            <h1 className="w-90 text-2xl sm:text-4xl text-green-200 font-shareTech" onMouseEnter={() => scrambleText(text)}>{text}</h1>
             <div className="flex sm:flex-row flex-col gap-4 sm:items-center py-4">
               <p className="font-shareTech text-sm sm:text-md text-green-200" style={{ textShadow: "0 0 5px #0f0" }}>sankalpkrpoddar000@gmail.com</p>
               <Link href="#contact-section">
@@ -560,7 +583,7 @@ export default function Home() {
             I&apos;m <span className="text-xl sm:text-3xl font-bold text-green-300 ">Sankalp</span>
           </p>
           <p className="text-xs sm:text-base">
-             — a developer driven by curiosity, creativity, and the thrill of problem-solving. I thrive on building things that feel alive on the web — experiences that aren’t just functional, but engaging and impactful.
+            — a developer driven by curiosity, creativity, and the thrill of problem-solving. I thrive on building things that feel alive on the web — experiences that aren’t just functional, but engaging and impactful.
           </p>
           <p className="text-xs sm:text-base">
             What excites me most is taking an idea and transforming it into something tangible, whether that’s a polished interface, a seamless interaction, or a system that works quietly but powerfully in the background. I’m constantly experimenting, pushing boundaries, and finding smarter ways to make technology feel effortless.
