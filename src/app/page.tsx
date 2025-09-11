@@ -122,7 +122,7 @@ export default function Home() {
         <div
           ref={containerRef}
           className="h-full w-1/4 relative">
-          {/* <MatrixRain containerRef={containerRef} /> */}
+          <MatrixRain containerRef={containerRef} />
           <div className="absolute bottom-0 h-full w-full bg-gradient-to-b from-transparent via-transparent to-[#000000]"></div>
         </div>
       </div>
