@@ -21,6 +21,26 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>();
+  const [typing, setTyping] = useState(false);
+  const typeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if(!typeRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if(entry.isIntersecting && typeRef.current){
+          setTyping(true);
+          observer.unobserve(typeRef.current);
+        }
+      },
+      {threshold: 0.2}
+    )
+
+    observer.observe(typeRef.current);
+
+    return () => observer.disconnect();
+  }, [])
 
 
   const onSubmit = async (data: FormData) => {
@@ -46,7 +66,7 @@ export default function Home() {
     if (animating.current) return;
     animating.current = true;
 
-    let randomChars = "!@#$%^&*_+=-<>";
+    let randomChars = "<>-_—=+_____dave";
     let iterations = 0;
 
     const step = () => {
@@ -58,7 +78,7 @@ export default function Home() {
             : randomChars[Math.floor(Math.random() * randomChars.length)];
         }).join(""));
 
-      if (iterations++ < text.length) setTimeout(step, 50);
+      if (iterations++ < text.length) setTimeout(step, 70);
       else animating.current = false;
     };
 
@@ -72,7 +92,7 @@ export default function Home() {
         <div className="flex flex-col justify-center h-full w-3/4 sm:pl-20 pl-8 pb-36">
           <div>
             <p className="text-sm text-green-200 font-shareTech">I&apos;m a</p>
-            <h1 className="w-90 text-2xl sm:text-4xl text-green-200 font-shareTech" onMouseEnter={() => scrambleText(text)}>{text}</h1>
+            <h1 className="w-full sm:w-90 text-2xl sm:text-4xl text-green-200 font-shareTech cursor-default" onMouseEnter={() => scrambleText(text)}>{text}</h1>
             <div className="flex sm:flex-row flex-col gap-4 sm:items-center py-4">
               <p className="font-shareTech text-sm sm:text-md text-green-200" style={{ textShadow: "0 0 5px #0f0" }}>sankalpkrpoddar000@gmail.com</p>
               <Link href="#contact-section">
@@ -102,7 +122,7 @@ export default function Home() {
         <div
           ref={containerRef}
           className="h-full w-1/4 relative">
-          <MatrixRain containerRef={containerRef} />
+          {/* <MatrixRain containerRef={containerRef} /> */}
           <div className="absolute bottom-0 h-full w-full bg-gradient-to-b from-transparent via-transparent to-[#000000]"></div>
         </div>
       </div>
@@ -193,7 +213,6 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-
           </div>
           <div className="w-full sm:w-2/5 h-full relative">
             <div className="w-full sm:h-1/2 h-40 sm:p-2 relative">
@@ -235,7 +254,9 @@ export default function Home() {
                 </svg>
               </div>
 
-              <div className="absolute top-6 left-56 sm:top-12 sm:left-94 w-30 h-30 sm:w-44 sm:h-48 flex flex-col gap-2 sm:gap-4 ">
+
+
+              <div className="absolute top-6 left-56 sm:top-11 sm:left-94 w-30 h-30 sm:w-44 sm:h-48 flex flex-col gap-2 sm:gap-4 ">
                 <div>
                   <h1 className="font-shareTech font-black text-sm sm:text-base text-green-200">Project 2</h1>
                   <h2 className="font-shareTech text-[10px] sm:text-sm text-green-200">project desc</h2>
@@ -294,7 +315,7 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <div className="absolute top-4 left-56 sm:top-10 sm:left-94 w-30 h-30 sm:w-44 sm:h-40 flex flex-col gap-2 sm:gap-3 scale-100">
+              <div className="absolute top-4 left-56 sm:top-9 sm:left-94 w-30 h-30 sm:w-44 sm:h-40 flex flex-col gap-2 sm:gap-3 scale-100">
                 <div>
                   <h1 className="font-shareTech font-black text-sm sm:text-base text-green-200">Project 3</h1>
                   <h2 className="font-shareTech text-[10px] sm:text-sm text-green-200">project desc</h2>
@@ -342,7 +363,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col scale-50 sm:scale-80 md:scale-100 items-center justify-center gap-2">
+            <div className="flex flex-col scale-50 sm:scale-80 md:scale-100 items-center justify-center gap-2 scaleAnimation">
               <div className="flex gap-6">
                 <div className="animateSvg h-24 w-24 relative flex items-center justify-center">
                   <svg
@@ -560,12 +581,27 @@ export default function Home() {
             transform: translateY(-5px);
             transform: scale(1.05);
           }
+          @media(min-width: 768px){
+          .scaleAnimation{
+            animation: scaleUp;
+            animation-timeline: view();
+            animation-range: entry 0% exit 30%;
+            }
+          }
+          @keyframes scaleUp{
+            from{
+              scale: 0.5;
+            }
+            to{
+              scale: 1;
+            }
+          }
         `}
           </style>
         </div>
       </div>
       {/* about section */}
-      <div id="about-section" className="w-full h-120 sm:h-[60vh] pt-20 p-4 flex items-center justify-center relative">
+      <div id="about-section" ref={typeRef} className="w-full h-120 sm:h-[60vh] pt-20 p-4 flex items-center justify-center relative">
         <svg
           className="w-full h-full"
         >
@@ -579,9 +615,13 @@ export default function Home() {
           />
         </svg>
         <div className="absolute flex flex-col gap-2 sm:gap-4 top-24 left-8 w-78 sm:w-364 sm:h-77 font-shareTech text-green-200 sm:p-4">
-          <p>
-            I&apos;m <span className="text-xl sm:text-3xl font-bold text-green-300 ">Sankalp</span>
+          <div className="flex">
+          <p className={`w-30 sm:w-40 typewriter ${typing ? "animate": ""}`}>
+            I&apos;m <span className="text-xl sm:text-3xl font-bold text-green-300">Sankalp</span>
           </p>
+          <span className="cursor w-2 sm:w-3"></span>
+          </div>
+
           <p className="text-xs sm:text-base">
             — a developer driven by curiosity, creativity, and the thrill of problem-solving. I thrive on building things that feel alive on the web — experiences that aren’t just functional, but engaging and impactful.
           </p>
@@ -592,6 +632,39 @@ export default function Home() {
             I approach my work with adaptability and ambition — quick to learn, unafraid of challenges, and always focused on crafting solutions that stand out. For me, coding isn’t just about writing logic; it’s about shaping experiences that leave a mark.
           </p>
         </div>
+        <style>
+          {`
+            .typewriter{
+              overflow: hidden;
+              white-space: nowrap;
+              width: 0;
+            }
+            .typewriter.animate{
+              animation: typing 2s steps(50, end) forwards;
+            }
+            .cursor {
+              border: 1px solid #7bf1a8;         
+              background-color: transparent; 
+              vertical-align: bottom;
+              animation: blink-caret 1s step-end 8;
+            }
+
+            @keyframes typing{
+                  from{width: 0}
+                  to{width: 40%}
+            }
+            @media(min-width: 768px){
+              @keyframes typing{
+                  from{width: 0}
+                  to{width: 12%}
+              }
+            }
+            @keyframes blink-caret{
+              0%,100% { background-color: transparent}
+              50% { background-color: #7bf1a8 }
+            }
+          `}
+        </style>
       </div>
       {/* 4th page */}
       <div className="h-full py-10 pt-20" id="contact-section">
