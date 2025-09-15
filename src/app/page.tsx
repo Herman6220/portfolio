@@ -66,7 +66,7 @@ export default function Home() {
     if (animating.current) return;
     animating.current = true;
 
-    let randomChars = "<>-_—=+_____dave";
+    const randomChars = "<>-_—=+_____dave";
     let iterations = 0;
 
     const step = () => {
