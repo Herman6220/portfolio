@@ -25,16 +25,16 @@ export default function Home() {
   const typeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if(!typeRef.current) return;
+    if (!typeRef.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if(entry.isIntersecting && typeRef.current){
+        if (entry.isIntersecting && typeRef.current) {
           setTyping(true);
           observer.unobserve(typeRef.current);
         }
       },
-      {threshold: 0.2}
+      { threshold: 0.2 }
     )
 
     observer.observe(typeRef.current);
@@ -126,13 +126,16 @@ export default function Home() {
           <div className="absolute bottom-0 h-full w-full bg-gradient-to-b from-transparent via-transparent to-[#000000]"></div>
         </div>
       </div>
+
+      
       {/* 2nd page */}
       <div id="projects-section" className="h-full pt-20">
-        <div className="py-10 px-2 sm:py-4 sm:px-4 w-full h-full sm:h-[80vh] flex sm:flex-row flex-col gap-4 items-center justify-center sm:items-center sm:justify-between relative">
-          <div className="absolute mb-4 top-0 left-8 sm:left-20"><h1 className="font-shareTech text-xl sm:text-3xl font-black text-green-300">Projects</h1></div>
-          <div className="w-full h-44 sm:w-3/5 sm:h-3/4 sm:p-2 relative">
+        <div className="py-10 px-2 sm:py-4 sm:px-4 w-full h-full flex  flex-col gap-4 justify-center">
+          <div className="mb-4 pl-4"><h1 className="font-shareTech text-xl sm:text-3xl font-black text-green-300">Projects</h1></div>
+          <div className="flex w-full h-44 sm:h-108">
+          <div className="w-full h-full sm:w-3/5 sm:p-2 relative">
             <svg
-              viewBox="0 0 100 102"
+              viewBox="0 0 101 102"
               className="w-full h-full"
               preserveAspectRatio="none"
               filter="drop-shadow(0 0 20px #7bf1a8)"
@@ -214,15 +217,18 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-full sm:w-2/5 h-full relative">
-            <div className="w-full sm:h-1/2 h-40 sm:p-2 relative">
+          </div>
+
+                
+            <div className="flex w-full h-40 sm:h-100 sm:justify-end">
+            <div className="w-full h-full sm:w-3/5 sm:p-2 relative">
               <svg
                 viewBox="0 0 101 102"
                 className="w-full h-full"
                 preserveAspectRatio="none"
                 filter="drop-shadow(0 0 20px #7bf1a8)"
               >
-                <polygon points="0,5 2,0 30,0 32,5 46,5 48,10 98,10 100,15 100,90 98,95 78,95 76,100 2,100 0,95"
+                <polygon points="0,12 6,2 35,2 37,6 63,6 65,2 98,2 100,6 100,91 98,95 78,95 76,100 6,100 0,90"
                   fill="rgba(0, 255, 0, 0.05)"
                   stroke="#7bf1a8"
                   strokeWidth="1"
@@ -235,34 +241,32 @@ export default function Home() {
                 <polygon points="86.4,96.6 85,100 86.5,100 87.9,96.6" fill="rgba(0, 255, 0, 0.01)" stroke="#7bf1a8" strokeWidth="1" vectorEffect="non-scaling-stroke" />
                 <polygon points="88.4,96.6 87,100 88.5,100 89.9,96.6" fill="rgba(0, 255, 0, 0.01)" stroke="#7bf1a8" strokeWidth="1" vectorEffect="non-scaling-stroke" />
                 <polygon points="90.4,96.6 89,100 90.5,100 91.9,96.6" fill="rgba(0, 255, 0, 0.01)" stroke="#7bf1a8" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-                <polygon points="1,50 1,6 2.5,2 29.8,2 30.2,3 2.8,3 1.5,6 1.5,49" fill="none" stroke="#7bf1a8" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-                <polygon points="31,0 32.4,3.4 46.4,3.4 48.5,8.6 51.2,8.6 48,0" fill="#7bf1a8" />
+                <polygon points="32,0 31,1 35,1 37,5 63,5 65,1 69,1 68,0 64.7,0 62.7,4 37.3,4 35.3,0" fill="#7bf1a8" />
               </svg>
-              <div className="absolute -top-3 -left-12 sm:top-12 sm:left-8 sm:w-80 h-48 scale-60 sm:scale-100 ">
-                <svg
-                  viewBox="0 0 80 48"
-                  className="w-full h-full"
-                  preserveAspectRatio="none"
-                >
+              <div className="absolute -top-2 -left-8 sm:top-18 sm:left-14 sm:w-120 sm:h-66 scale-66 sm:scale-100 ">
+                <svg viewBox="0 0 120 66" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <pattern id="protwo" patternUnits="userSpaceOnUse" width="120" height="66">
+                      <image href="/project2.png" x="0" y="0" width="120" height="66" preserveAspectRatio="xMidYMid slice" />
+                    </pattern>
+                  </defs>
                   <polygon
-                    points="0,4 4,0 76,0 80,4 80,44 76,48 4,48 0,44"
-                    fill="none"
+                    points="0,4 5,0 115,0 120,4 120,62 115,66 5,66 0,62"
+                    fill="url(#protwo)"
                     stroke="#7bf1a8"
                     strokeWidth="1"
                     vectorEffect="non-scaling-stroke"
+                    preserveAspectRatio="xMidYMid slice"
                   />
                 </svg>
               </div>
-
-
-
-              <div className="absolute top-6 left-56 sm:top-11 sm:left-94 w-30 h-30 sm:w-44 sm:h-48 flex flex-col gap-2 sm:gap-4 ">
+              <div className="absolute top-2 left-58 sm:top-18 sm:left-140 w-28 h-30 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-4 ">
                 <div>
-                  <h1 className="font-shareTech font-black text-sm sm:text-base text-green-200">Project 2</h1>
-                  <h2 className="font-shareTech text-[10px] sm:text-sm text-green-200">project desc</h2>
+                  <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Youtube Clone</h1>
+                  <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200 line-clamp-1 sm:line-clamp-none">This is a fullstack youtube clone.</h2>
                 </div>
                 <div className="w-full h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
-                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Tech stack</p>
+                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Next.js, PostSql, trpc, Clerk</p>
                 </div>
                 <div className="flex flex-col gap-1 sm:gap-2">
                   <Link href="#">
@@ -274,40 +278,47 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            </div>
 
-            <div className="w-full sm:h-1/2 h-40 sm:p-2 mt-4 sm:mt-0 relative">
+            <div className="flex w-full h-40 sm:h-100">
+            <div className="w-full sm:w-3/5 h-full sm:p-2 mt-4 sm:mt-0 relative">
               <svg
                 viewBox="0 0 100 100"
                 className="w-full h-full"
                 preserveAspectRatio="none"
                 filter="drop-shadow(0 0 20px #7bf1a8)"
               >
-                <polygon points="1.2,12.5 5.2,2.5 98,2.5 98,78.5 89,95 6.2,95 1.2,84.5"
+                <polygon points="1.2,10.5 5.2,2.5 98,2.5 98,78.5 89,95 6.2,95 1.2,86.5"
                   fill="rgba(0, 255, 0, 0.05)"
                   stroke="#7bf1a8"
                   strokeWidth="1"
                   vectorEffect="non-scaling-stroke"
                 />
-                <polygon points="1.2,12.5 5.2,2.5 98,2.5 98,78.5 89,95 6.2,95 1.2,84.5"
+                <polygon points="1.2,10.5 5.2,2.5 98,2.5 98,78.5 89,95 6.2,95 1.2,86.5"
                   fill="none"
                   stroke="#7bf1a8"
                   strokeWidth="0.2"
                   vectorEffect="non-scaling-stroke"
-                  transform="scale(0.98, 0.96)"
+                  transform="scale(0.99, 0.97)"
                   transform-origin="center"
                 />
-                <polygon points="0,20 0,15 0,10 4,0 16,0 17,2.5 5.2,2.5 1.2,12.5 1.2,22" fill="#7bf1a8" />
-                <polygon points="86,100 92,100 96,92.5 96,87.5 100,80 100,70 98,65 98,78.5 89,95 84,95" fill="#7bf1a8" />
+                <polygon points="0.6,20 0.6,9 4.6,1 16,1 17,2.5 5.2,2.5 1.2,10.5 1.2,22" fill="#7bf1a8" />
+                <polygon points="86,98 90,98 99.2,80.5 99.2,70 98,65 98,78.5 89,95 84,95" fill="#7bf1a8" />
               </svg>
 
-              <div className="absolute -top-5 -left-11 sm:top-10 sm:left-10 scale-60 sm:scale-100 w-80 h-48  ">
+              <div className="absolute -top-2 -left-8 sm:top-14 sm:w-120 sm:left-14 sm:h-66 scale-66 sm:scale-100">
                 <svg
-                  viewBox="0 0 80 48"
+                  viewBox="0 0 120 66"
                   className="w-full h-full"
                   preserveAspectRatio="none"
                 >
+                  <defs>
+                    <pattern id="protwo" patternUnits="userSpaceOnUse" width="120" height="66">
+                      <image href="/project2.png" x="0" y="0" width="120" height="66" preserveAspectRatio="xMidYMid slice" />
+                    </pattern>
+                  </defs>
                   <polygon
-                    points="0,4 4,0 76,0 80,4 80,44 76,48 4,48 0,44"
+                    points="0,4 5,0 115,0 120,4 120,62 115,66 5,66 0,62"
                     fill="none"
                     stroke="#7bf1a8"
                     strokeWidth="1"
@@ -315,10 +326,11 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <div className="absolute top-4 left-56 sm:top-9 sm:left-94 w-30 h-30 sm:w-44 sm:h-40 flex flex-col gap-2 sm:gap-3 scale-100">
+
+              <div className="absolute top-4 left-58 sm:top-13 sm:left-140 w-28 h-30 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-3 scale-100">
                 <div>
-                  <h1 className="font-shareTech font-black text-sm sm:text-base text-green-200">Project 3</h1>
-                  <h2 className="font-shareTech text-[10px] sm:text-sm text-green-200">project desc</h2>
+                  <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Project 3</h1>
+                  <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200">project desc</h2>
                 </div>
                 <div className="w-full h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
                   <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Tech stack</p>
@@ -333,10 +345,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            </div>
 
           </div>
         </div>
-      </div>
+
+
       {/* 3rd page */}
       <div id="skills-section" className="h-full pt-10 sm:pt-20">
         <div className="p-2 w-full h-full my-10 flex items-center justify-center rounded-4xl bg-gradient-to-b from-green-400/70 via-green-800/20 to-green-400/40">
@@ -616,10 +630,10 @@ export default function Home() {
         </svg>
         <div className="absolute flex flex-col gap-2 sm:gap-4 top-24 left-8 w-78 sm:w-364 sm:h-77 font-shareTech text-green-200 sm:p-4">
           <div className="flex">
-          <p className={`w-30 sm:w-40 typewriter ${typing ? "animate": ""}`}>
-            I&apos;m <span className="text-xl sm:text-3xl font-bold text-green-300">Sankalp</span>
-          </p>
-          <span className="cursor w-2 sm:w-3"></span>
+            <p className={`w-30 sm:w-30 typewriter ${typing ? "animate" : ""}`}>
+              I&apos;m <span className="text-xl sm:text-3xl font-bold text-green-300">Sankalp Kumar</span>
+            </p>
+            <span className="cursor w-2 sm:w-3"></span>
           </div>
 
           <p className="text-xs sm:text-base">
@@ -640,23 +654,23 @@ export default function Home() {
               width: 0;
             }
             .typewriter.animate{
-              animation: typing 2s steps(50, end) forwards;
+              animation: typing 3s steps(20, end) forwards;
             }
             .cursor {
               border: 1px solid #7bf1a8;         
               background-color: transparent; 
               vertical-align: bottom;
-              animation: blink-caret 1s step-end 8;
+              animation: blink-caret 1s step-end infinite;
             }
 
             @keyframes typing{
                   from{width: 0}
-                  to{width: 40%}
+                  to{width: 58%}
             }
             @media(min-width: 768px){
               @keyframes typing{
                   from{width: 0}
-                  to{width: 12%}
+                  to{width: 18%}
               }
             }
             @keyframes blink-caret{
@@ -726,7 +740,7 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group px-2 py-1 h-18 font-shareTech text-green-200 cursor-pointer border border-red-700/50 relative overflow-hidden"
+                className="group px-2 py-1 h-18 font-shareTech text-green-200 cursor-pointer border border-red-700/50 relative overflow-hidden disabled:animate-pulse"
                 style={{ textShadow: "0 0 5px #0f0" }}
               >
                 <div className="absolute bg-red-500 top-1/2 left-1/2 -translate-x-1/2  w-56 h-28 z-0 blur-lg group-hover:scale-x-150 group-hover:blur-xl transition-transform duration-1000 ease-in-out" style={{ borderRadius: "50%" }}></div>
@@ -734,18 +748,6 @@ export default function Home() {
               </button>
               <Image alt="wr" className="absolute w-10 h-10 invert bottom-14 right-2 opacity-50" width={40} height={40} src="/animal.png" />
             </form>
-            {/* <style>
-              {`
-                .grad{
-                  background: radial-gradient(ellipse at bottom, rgba(255, 0, 0, 0.5) 10%, transparent 70%);
-                  transition: all 1s ease-in-out;
-                }
-                .grad:hover{
-                  background: radial-gradient(ellipse at bottom, rgba(255, 0, 0, 0.5) 30%, transparent 90%);
-                }
-              `}
-            </style> */}
-
 
           </div>
 
