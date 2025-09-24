@@ -130,7 +130,7 @@ export default function Home() {
       
       {/* 2nd page */}
       <div id="projects-section" className="h-full pt-20">
-        <div className="py-10 px-2 sm:py-4 sm:px-4 w-full h-full flex  flex-col gap-4 justify-center">
+        <div className="py-10 px-2 sm:py-4 sm:px-4 w-full h-full flex  flex-col gap-4 justify-center relative">
           <div className="mb-4 pl-4"><h1 className="font-shareTech text-xl sm:text-3xl font-black text-green-300">Projects</h1></div>
           <div className="flex w-full h-44 sm:h-108">
           <div className="w-full h-full sm:w-3/5 sm:p-2 relative">
@@ -199,7 +199,7 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <div className="absolute top-4 sm:top-13 left-58 sm:left-140 w-28 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-4">
+            <div className="absolute top-4 sm:top-13 left-62 sm:left-140 w-28 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-4">
               <div>
                 <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Hermano.</h1>
                 <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200">service provider app</h2>
@@ -228,7 +228,7 @@ export default function Home() {
                 preserveAspectRatio="none"
                 filter="drop-shadow(0 0 20px #7bf1a8)"
               >
-                <polygon points="0,12 6,2 35,2 37,6 63,6 65,2 98,2 100,6 100,91 98,95 78,95 76,100 6,100 0,90"
+                <polygon points="0,12 6,2 37,2 39,6 61,6 63,2 98,2 100,6 100,91 98,95 78,95 76,100 6,100 0,90"
                   fill="rgba(0, 255, 0, 0.05)"
                   stroke="#7bf1a8"
                   strokeWidth="1"
@@ -241,7 +241,7 @@ export default function Home() {
                 <polygon points="86.4,96.6 85,100 86.5,100 87.9,96.6" fill="rgba(0, 255, 0, 0.01)" stroke="#7bf1a8" strokeWidth="1" vectorEffect="non-scaling-stroke" />
                 <polygon points="88.4,96.6 87,100 88.5,100 89.9,96.6" fill="rgba(0, 255, 0, 0.01)" stroke="#7bf1a8" strokeWidth="1" vectorEffect="non-scaling-stroke" />
                 <polygon points="90.4,96.6 89,100 90.5,100 91.9,96.6" fill="rgba(0, 255, 0, 0.01)" stroke="#7bf1a8" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-                <polygon points="32,0 31,1 35,1 37,5 63,5 65,1 69,1 68,0 64.7,0 62.7,4 37.3,4 35.3,0" fill="#7bf1a8" />
+                <polygon points="32,0 33,1 37,1 39,5 61,5 63,1 67,1 68,0 62.7,0 60.7,4 39.3,4 37.3,0" fill="#7bf1a8" />
               </svg>
               <div className="absolute -top-2 -left-8 sm:top-18 sm:left-14 sm:w-120 sm:h-66 scale-66 sm:scale-100 ">
                 <svg viewBox="0 0 120 66" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
@@ -260,7 +260,7 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <div className="absolute top-2 left-58 sm:top-18 sm:left-140 w-28 h-30 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-4 ">
+              <div className="absolute top-2 left-62 sm:top-18 sm:left-140 w-28 h-30 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-4 ">
                 <div>
                   <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Youtube Clone</h1>
                   <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200 line-clamp-1 sm:line-clamp-none">This is a fullstack youtube clone.</h2>
@@ -327,7 +327,7 @@ export default function Home() {
                 </svg>
               </div>
 
-              <div className="absolute top-4 left-58 sm:top-13 sm:left-140 w-28 h-30 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-3 scale-100">
+              <div className="absolute top-4 left-62 sm:top-13 sm:left-140 w-28 h-30 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-3 scale-100">
                 <div>
                   <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Chaser</h1>
                   <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200">2d platformer game</h2>
