@@ -266,13 +266,13 @@ export default function Home() {
                   <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200 line-clamp-1 sm:line-clamp-none">This is a fullstack youtube clone.</h2>
                 </div>
                 <div className="w-full h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
-                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Next.js, PostSql, trpc, Clerk</p>
+                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•NextJs•Mux•PostSql •tRPC•Clerk</p>
                 </div>
                 <div className="flex flex-col gap-1 sm:gap-2">
-                  <Link href="#">
+                  <Link href="https://yt-umber.vercel.app">
                     <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Visit</div>
                   </Link>
-                  <Link href="#">
+                  <Link href="https://github.com/Herman6220/yt">
                     <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Repository</div>
                   </Link>
                 </div>
@@ -313,13 +313,13 @@ export default function Home() {
                   preserveAspectRatio="none"
                 >
                   <defs>
-                    <pattern id="protwo" patternUnits="userSpaceOnUse" width="120" height="66">
-                      <image href="/project2.png" x="0" y="0" width="120" height="66" preserveAspectRatio="xMidYMid slice" />
+                    <pattern id="prothree" patternUnits="userSpaceOnUse" width="120" height="66">
+                      <image href="/project3.webp" x="0" y="0" width="120" height="66" preserveAspectRatio="xMidYMid slice" />
                     </pattern>
                   </defs>
                   <polygon
                     points="0,4 5,0 115,0 120,4 120,62 115,66 5,66 0,62"
-                    fill="none"
+                    fill="url(#prothree)"
                     stroke="#7bf1a8"
                     strokeWidth="1"
                     vectorEffect="non-scaling-stroke"
@@ -329,11 +329,11 @@ export default function Home() {
 
               <div className="absolute top-4 left-58 sm:top-13 sm:left-140 w-28 h-30 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-3 scale-100">
                 <div>
-                  <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Project 3</h1>
-                  <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200">project desc</h2>
+                  <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Chaser</h1>
+                  <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200">2d platformer game</h2>
                 </div>
                 <div className="w-full h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
-                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Tech stack</p>
+                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•C++, raylib</p>
                 </div>
                 <div className="flex flex-col gap-1 sm:gap-2">
                   <Link href="#">
