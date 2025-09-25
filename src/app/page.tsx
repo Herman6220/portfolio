@@ -1,12 +1,13 @@
 'use client'
 import { useEffect, useRef, useState } from "react";
-import MatrixRain from "./components/MatrixRain";
+import MatrixRain from "../components/MatrixRain";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useToast } from "./hooks/useToast";
 import Link from "next/link";
 import { HiArrowDown } from "react-icons/hi";
 import Image from "next/image";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 export default function Home() {
 
@@ -66,7 +67,7 @@ export default function Home() {
     if (animating.current) return;
     animating.current = true;
 
-    const randomChars = "<>-_—=+_____dave";
+    const randomChars = "<-=%$____dave";
     let iterations = 0;
 
     const step = () => {
@@ -186,7 +187,7 @@ export default function Home() {
               <svg viewBox="0 0 120 66" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                 <defs>
                   <pattern id="bias" patternUnits="userSpaceOnUse" width="120" height="66">
-                    <image href="/p1.png" x="0" y="0" width="120" height="66" preserveAspectRatio="xMidYMid slice" />
+                    <image href="/p1.webp" x="0" y="0" width="120" height="66" preserveAspectRatio="xMidYMid slice" />
                   </pattern>
                 </defs>
                 <polygon
@@ -336,10 +337,10 @@ export default function Home() {
                   <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•C++, raylib</p>
                 </div>
                 <div className="flex flex-col gap-1 sm:gap-2">
-                  <Link href="#">
-                    <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Visit</div>
-                  </Link>
-                  <Link href="#">
+                  {/* <Link href="#"> */}
+                    <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Soon...</div>
+                  {/* </Link> */}
+                  <Link href="https://github.com/Herman6220/chaser">
                     <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Repository</div>
                   </Link>
                 </div>
@@ -377,6 +378,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            
             <div className="flex flex-col scale-50 sm:scale-80 md:scale-100 items-center justify-center gap-2 scaleAnimation">
               <div className="flex gap-6">
                 <div className="animateSvg h-24 w-24 relative flex items-center justify-center">
@@ -484,7 +486,7 @@ export default function Home() {
                       vectorEffect="non-scaling-stroke"
                     />
                   </svg>
-                  <i className="devicon-express-original text-5xl absolute"></i>
+                  <i className="devicon-express-original text-5xl absolute text-white"></i>
                 </div>
 
 
@@ -595,19 +597,27 @@ export default function Home() {
             transform: translateY(-5px);
             transform: scale(1.05);
           }
-          @media(min-width: 768px){
           .scaleAnimation{
             animation: scaleUp;
             animation-timeline: view();
-            animation-range: entry 0% exit 30%;
+            animation-range: entry 0% exit 10%;
             }
-          }
-          @keyframes scaleUp{
-            from{
-              scale: 0.5;
+            @keyframes scaleUp{
+              from{
+                scale: 0.2;
+              }
+              to{
+                scale: 0.5;
+              }
             }
-            to{
-              scale: 1;
+          @media(min-width: 768px){
+            @keyframes scaleUp{
+              from{
+                scale: 0.5;
+              }
+              to{
+                scale: 1;
+              }
             }
           }
         `}
@@ -744,9 +754,16 @@ export default function Home() {
                 style={{ textShadow: "0 0 5px #0f0" }}
               >
                 <div className="absolute bg-red-500 top-1/2 left-1/2 -translate-x-1/2  w-56 h-28 z-0 blur-lg group-hover:scale-x-150 group-hover:blur-xl transition-transform duration-1000 ease-in-out" style={{ borderRadius: "50%" }}></div>
-                <span className="relative z-10">Send Message</span>
+                <span className="relative z-10">{isSubmitting ? "Sending..." : "Send Message"}</span>
               </button>
-              <Image alt="wr" className="absolute w-10 h-10 invert bottom-14 right-2 opacity-50" width={40} height={40} src="/animal.png" />
+              <div className="absolute bottom-14 right-2 w-10 h-10">
+              <Tooltip >
+                <TooltipTrigger asChild>
+                  <Image alt="wr" className="w-10 h-10 invert opacity-50" width={40} height={40} src="/animal.png" />
+                </TooltipTrigger>
+                <TooltipContent side="right">Follow the white rabbit</TooltipContent>
+              </Tooltip>
+              </div>
             </form>
 
           </div>

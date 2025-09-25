@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 import { Share_Tech_Mono } from "next/font/google";
-import Footer from "./components/Footer";
+import Footer from "../components/Footer";
 import { ToastProvider } from "./hooks/useToast";
 
 const shareTechMono = Share_Tech_Mono({
@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" >
-      <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+      <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" precedence="default"/>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${shareTechMono.variable} antialiased`}
       >
