@@ -36,7 +36,7 @@ export default function RootLayout({
     <html lang="en" >
       <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" precedence="default"/>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${shareTechMono.variable} antialiased`}
+        className={`${shareTechMono.variable} antialiased`}
       >
         <Navbar/>
         <ToastProvider>

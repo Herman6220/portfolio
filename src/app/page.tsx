@@ -90,6 +90,80 @@ export default function Home() {
   return (
     <>
       <div className="w-full h-[100vh] flex gap-4 items-start justify-between relative">
+        <div className="absolute top-20 md:top-30 -left-10 md:left-0 w-68 h-30 -z-10 ">
+          <svg
+            viewBox="0 0 68 40"
+            className="w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient
+                id="dashGradient"
+                gradientUnits="userSpaceOnUse"
+                x1="-10"
+                y1="20"
+                x2="5"
+                y2="20"
+              >
+                <stop stop-color="#ff0000" stop-opacity="0"></stop>
+                <stop stop-color="#ff0000ee"></stop>
+                <stop offset="1" stop-color="#ff0099" stop-opacity="0"></stop>
+
+                <animate
+                  attributeName="x1"
+                  from="70"
+                  to="-20"
+                  dur="3s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="x2"
+                  from="85"
+                  to="-5"
+                  dur="3s"
+                  repeatCount="indefinite"
+                />
+
+                <animate
+                  attributeName="y1"
+                  from="10"
+                  to="0"
+                  dur="3s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="y2"
+                  from="20"
+                  to="10"
+                  dur="3s"
+                  repeatCount="indefinite"
+                />
+              </linearGradient>
+            </defs>
+
+            <path
+              d="
+                M 65 40 
+                v -10
+                q 0 -1 -1 -1
+                h -15 
+                q -1 0 -1 -1
+                v -10
+                q 0 -1 -1 -1
+                h -20
+                q -1 0 -1 -1
+                v -10
+                q 0 -1 -1 -1
+                h -30
+              "
+              fill="none"
+              stroke="url(#dashGradient)"
+              strokeWidth="1.5"
+              vectorEffect="non-scaling-stroke"
+            >
+            </path>
+          </svg>
+        </div>
         <div className="flex flex-col justify-center h-full w-3/4 sm:pl-20 pl-8 pb-36">
           <div>
             <p className="text-sm text-green-200 font-shareTech">I&apos;m a</p>
@@ -128,100 +202,100 @@ export default function Home() {
         </div>
       </div>
 
-      
+
       {/* 2nd page */}
       <div id="projects-section" className="h-full pt-20">
         <div className="py-10 px-2 sm:py-4 sm:px-4 w-full h-full flex  flex-col gap-4 justify-center relative">
           <div className="mb-4 pl-4"><h1 className="font-shareTech text-xl sm:text-3xl font-black text-green-300">Projects</h1></div>
           <div className="flex w-full h-44 sm:h-108">
-          <div className="w-full h-full sm:w-3/5 sm:p-2 relative">
-            <svg
-              viewBox="0 0 101 102"
-              className="w-full h-full"
-              preserveAspectRatio="none"
-              filter="drop-shadow(0 0 20px #7bf1a8)"
-            >
-              <polygon
-                points="0,10 6,0 60,0 63,5 97,5 100,10 100,90 94,100 40,100 37,95 3,95 0,90"
-                fill="rgba(0, 255, 0, 0.05)"
-                stroke="#7bf1a8"
-                strokeWidth="1"
-                vectorEffect="non-scaling-stroke"
-              />
-              <polygon
-                points="0,10 6,0 60,0 63,5 97,5 100,10 100,90 94,100 40,100 37,95 3,95 0,90"
-                fill="none"
-                stroke="#7bf1a8"
-                strokeWidth="0.2"
-                transform="scale(0.99, 0.975)"
-                transform-origin="center"
-                vectorEffect="non-scaling-stroke"
-              />
-              {/* //lower chips */}
-              <polygon points="37,100 34.6,96.2 36.6,96.2 39,100" fill="#7bf1a8" />
-              <polygon points="34,100 31.6,96.2 33.6,96.2 36,100" fill="#7bf1a8" />
-              <polygon points="31,100 28.6,96.2 30.6,96.2 33,100" fill="#7bf1a8" />
-              <polygon points="28,100 25.6,96.2 27.6,96.2 30,100" fill="#7bf1a8" />
-              <polygon points="25,100 22.6,96.2 24.6,96.2 27,100" fill="#7bf1a8" />
-              <polygon points="22,100 19.6,96.2 21.6,96.2 24,100" fill="#7bf1a8" />
-              <polygon points="19,100 16.6,96.2 18.6,96.2 21,100" fill="#7bf1a8" />
-              <polygon points="16,100 13.6,96.2 15.6,96.2 18,100" fill="#7bf1a8" />
-              <polygon points="13,100 10.6,96.2 12.6,96.2 15,100" fill="#7bf1a8" />
-              <polygon points="10,100 7.6,96.2 9.6,96.2 12,100" fill="#7bf1a8" />
-
-              {/* //upper chips */}
-              <polygon points="61,0 63.4,3.8 65.4,3.8 63,0" fill="#7bf1a8" />
-              <polygon points="64,0 66.4,3.8 68.4,3.8 66,0" fill="#7bf1a8" />
-              <polygon points="67,0 69.4,3.8 71.4,3.8 69,0" fill="#7bf1a8" />
-              <polygon points="70,0 72.4,3.8 74.4,3.8 72,0" fill="#7bf1a8" />
-              <polygon points="73,0 75.4,3.8 77.4,3.8 75,0" fill="#7bf1a8" />
-              <polygon points="76,0 78.4,3.8 80.4,3.8 78,0" fill="#7bf1a8" />
-              <polygon points="79,0 81.4,3.8 83.4,3.8 81,0" fill="#7bf1a8" />
-              <polygon points="82,0 84.4,3.8 86.4,3.8 84,0" fill="#7bf1a8" />
-              <polygon points="85,0 87.4,3.8 89.4,3.8 87,0" fill="#7bf1a8" />
-              <polygon points="88,0 90.4,3.8 92.4,3.8 90,0" fill="#7bf1a8" />
-
-
-            </svg>
-            <div className="absolute sm:top-14 -top-2 -left-8 sm:left-14 sm:w-120 sm:h-66 scale-66 sm:scale-100">
-              <svg viewBox="0 0 120 66" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <pattern id="bias" patternUnits="userSpaceOnUse" width="120" height="66">
-                    <image href="/p1.webp" x="0" y="0" width="120" height="66" preserveAspectRatio="xMidYMid slice" />
-                  </pattern>
-                </defs>
+            <div className="w-full h-full sm:w-3/5 sm:p-2 relative">
+              <svg
+                viewBox="0 0 101 102"
+                className="w-full h-full"
+                preserveAspectRatio="none"
+                filter="drop-shadow(0 0 20px #7bf1a8)"
+              >
                 <polygon
-                  points="0,4 5,0 115,0 120,4 120,62 115,66 5,66 0,62"
-                  fill="url(#bias)"
+                  points="0,10 6,0 60,0 63,5 97,5 100,10 100,90 94,100 40,100 37,95 3,95 0,90"
+                  fill="rgba(0, 255, 0, 0.05)"
                   stroke="#7bf1a8"
                   strokeWidth="1"
                   vectorEffect="non-scaling-stroke"
-                  preserveAspectRatio="xMidYMid slice"
                 />
+                <polygon
+                  points="0,10 6,0 60,0 63,5 97,5 100,10 100,90 94,100 40,100 37,95 3,95 0,90"
+                  fill="none"
+                  stroke="#7bf1a8"
+                  strokeWidth="0.2"
+                  transform="scale(0.99, 0.975)"
+                  transform-origin="center"
+                  vectorEffect="non-scaling-stroke"
+                />
+                {/* //lower chips */}
+                <polygon points="37,100 34.6,96.2 36.6,96.2 39,100" fill="#7bf1a8" />
+                <polygon points="34,100 31.6,96.2 33.6,96.2 36,100" fill="#7bf1a8" />
+                <polygon points="31,100 28.6,96.2 30.6,96.2 33,100" fill="#7bf1a8" />
+                <polygon points="28,100 25.6,96.2 27.6,96.2 30,100" fill="#7bf1a8" />
+                <polygon points="25,100 22.6,96.2 24.6,96.2 27,100" fill="#7bf1a8" />
+                <polygon points="22,100 19.6,96.2 21.6,96.2 24,100" fill="#7bf1a8" />
+                <polygon points="19,100 16.6,96.2 18.6,96.2 21,100" fill="#7bf1a8" />
+                <polygon points="16,100 13.6,96.2 15.6,96.2 18,100" fill="#7bf1a8" />
+                <polygon points="13,100 10.6,96.2 12.6,96.2 15,100" fill="#7bf1a8" />
+                <polygon points="10,100 7.6,96.2 9.6,96.2 12,100" fill="#7bf1a8" />
+
+                {/* //upper chips */}
+                <polygon points="61,0 63.4,3.8 65.4,3.8 63,0" fill="#7bf1a8" />
+                <polygon points="64,0 66.4,3.8 68.4,3.8 66,0" fill="#7bf1a8" />
+                <polygon points="67,0 69.4,3.8 71.4,3.8 69,0" fill="#7bf1a8" />
+                <polygon points="70,0 72.4,3.8 74.4,3.8 72,0" fill="#7bf1a8" />
+                <polygon points="73,0 75.4,3.8 77.4,3.8 75,0" fill="#7bf1a8" />
+                <polygon points="76,0 78.4,3.8 80.4,3.8 78,0" fill="#7bf1a8" />
+                <polygon points="79,0 81.4,3.8 83.4,3.8 81,0" fill="#7bf1a8" />
+                <polygon points="82,0 84.4,3.8 86.4,3.8 84,0" fill="#7bf1a8" />
+                <polygon points="85,0 87.4,3.8 89.4,3.8 87,0" fill="#7bf1a8" />
+                <polygon points="88,0 90.4,3.8 92.4,3.8 90,0" fill="#7bf1a8" />
+
+
               </svg>
+              <div className="absolute sm:top-14 -top-2 -left-8 sm:left-14 sm:w-120 sm:h-66 scale-66 sm:scale-100">
+                <svg viewBox="0 0 120 66" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <pattern id="bias" patternUnits="userSpaceOnUse" width="120" height="66">
+                      <image href="/p1.webp" x="0" y="0" width="120" height="66" preserveAspectRatio="xMidYMid slice" />
+                    </pattern>
+                  </defs>
+                  <polygon
+                    points="0,4 5,0 115,0 120,4 120,62 115,66 5,66 0,62"
+                    fill="url(#bias)"
+                    stroke="#7bf1a8"
+                    strokeWidth="1"
+                    vectorEffect="non-scaling-stroke"
+                    preserveAspectRatio="xMidYMid slice"
+                  />
+                </svg>
+              </div>
+              <div className="absolute top-4 sm:top-13 left-62 sm:left-140 w-28 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-4">
+                <div>
+                  <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Hermano.</h1>
+                  <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200">service provider app</h2>
+                </div>
+                <div className="w-full h-full sm:h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
+                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Next.js •MongoDB •NextAuth •Razorpay </p>
+                </div>
+                <div className="flex flex-col gap-1 sm:gap-2">
+                  <Link href="https://hermano-nu.vercel.app/">
+                    <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Visit</div>
+                  </Link>
+                  <Link href="https://github.com/Herman6220/Hermano">
+                    <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Repository</div>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className="absolute top-4 sm:top-13 left-62 sm:left-140 w-28 sm:w-72 sm:h-72 flex flex-col gap-2 sm:gap-4">
-              <div>
-                <h1 className="font-shareTech font-black text-sm sm:text-xl text-green-200">Hermano.</h1>
-                <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200">service provider app</h2>
-              </div>
-              <div className="w-full h-full sm:h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
-                <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•Next.js, MongoDB, NextAuth, Razorpay </p>
-              </div>
-              <div className="flex flex-col gap-1 sm:gap-2">
-                <Link href="https://hermano-nu.vercel.app/">
-                  <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Visit</div>
-                </Link>
-                <Link href="https://github.com/Herman6220/Hermano">
-                  <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Repository</div>
-                </Link>
-              </div>
-            </div>
-          </div>
           </div>
 
-                
-            <div className="flex w-full h-40 sm:h-100 sm:justify-end">
+
+          <div className="flex w-full h-40 sm:h-100 sm:justify-end">
             <div className="w-full h-full sm:w-3/5 sm:p-2 relative">
               <svg
                 viewBox="0 0 101 102"
@@ -279,9 +353,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            </div>
+          </div>
 
-            <div className="flex w-full h-40 sm:h-100">
+          <div className="flex w-full h-40 sm:h-100">
             <div className="w-full sm:w-3/5 h-full sm:p-2 mt-4 sm:mt-0 relative">
               <svg
                 viewBox="0 0 100 100"
@@ -334,11 +408,11 @@ export default function Home() {
                   <h2 className="font-shareTech text-[10px] sm:text-lg text-green-200">2d platformer game</h2>
                 </div>
                 <div className="w-full h-8 border border-green-500/20 bg-green-700/20 px-1 sm:py-2 sm:px-2">
-                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•C++, raylib</p>
+                  <p className="font-shareTech text-[10px] sm:text-xs text-green-200">•C++ •raylib</p>
                 </div>
                 <div className="flex flex-col gap-1 sm:gap-2">
                   {/* <Link href="#"> */}
-                    <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Soon...</div>
+                  <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Soon...</div>
                   {/* </Link> */}
                   <Link href="https://github.com/Herman6220/chaser">
                     <div className="w-full h-6 sm:h-8 text-xs sm:text-sm border border-blue-300/40 bg-black px-1 py-2 font-shareTech flex items-center justify-center text-green-200" style={{ boxShadow: "0 0 2px #f0f" }}>Repository</div>
@@ -346,10 +420,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            </div>
-
           </div>
+
         </div>
+      </div>
 
 
       {/* 3rd page */}
@@ -378,7 +452,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             <div className="flex flex-col scale-50 sm:scale-80 md:scale-100 items-center justify-center gap-2 scaleAnimation">
               <div className="flex gap-6">
                 <div className="animateSvg h-24 w-24 relative flex items-center justify-center">
@@ -757,12 +831,12 @@ export default function Home() {
                 <span className="relative z-10">{isSubmitting ? "Sending..." : "Send Message"}</span>
               </button>
               <div className="absolute bottom-14 right-2 w-10 h-10">
-              <Tooltip >
-                <TooltipTrigger asChild>
-                  <Image alt="wr" className="w-10 h-10 invert opacity-50" width={40} height={40} src="/animal.png" />
-                </TooltipTrigger>
-                <TooltipContent side="right">Follow the white rabbit</TooltipContent>
-              </Tooltip>
+                <Tooltip >
+                  <TooltipTrigger asChild>
+                    <Image alt="wr" className="w-10 h-10 invert opacity-50" width={40} height={40} src="/animal.png" />
+                  </TooltipTrigger>
+                  <TooltipContent side="right">Follow the white rabbit</TooltipContent>
+                </Tooltip>
               </div>
             </form>
 
