@@ -90,7 +90,7 @@ export default function Home() {
   return (
     <>
       <div className="w-full h-[100vh] flex gap-4 items-start justify-between relative">
-        <div className="absolute top-20 md:top-30 -left-10 md:left-0 w-68 h-30 -z-10 ">
+        <div className="absolute top-30 left-0 w-68 h-30 -z-10 md:block hidden">
           <svg
             viewBox="0 0 68 40"
             className="w-full h-full"
