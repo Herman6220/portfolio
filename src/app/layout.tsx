@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import { Share_Tech_Mono } from "next/font/google";
+import { Oxanium } from "next/font/google";
 import Footer from "../components/Footer";
 import { ToastProvider } from "./hooks/useToast";
+import localFont from "next/font/local";
+
+const echocore = localFont({
+  src: [
+    {
+      path: "../../public/fonts/titleFont.otf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-echocore",
+})
 
 const shareTechMono = Share_Tech_Mono({
   variable: "--font-share-tech-mono",
@@ -12,15 +24,10 @@ const shareTechMono = Share_Tech_Mono({
   subsets: ["latin"],
 })
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const oxanium = Oxanium({
+  variable: "--font-oxanium",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -36,7 +43,7 @@ export default function RootLayout({
     <html lang="en" >
       <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" precedence="default"/>
       <body
-        className={`${shareTechMono.variable} antialiased`}
+        className={`${shareTechMono.variable} ${oxanium.variable} ${echocore.variable} antialiased`}
       >
         <Navbar/>
         <ToastProvider>

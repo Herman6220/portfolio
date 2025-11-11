@@ -1,4 +1,6 @@
 import { ArrowUpIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { Dispatch, SetStateAction, useEffect } from "react";
 
 
@@ -31,21 +33,26 @@ const ProjectPlaceholder = ({
             setBars(bars.map(() => Math.floor(Math.random() * 80) + 10));
         }, 1500)
         return () => clearInterval(interval);
-    }, [bars])
+    }, [bars, setBars])
 
     return (
         <>
-            <div className="w-full max-w-screen h-full md:h-screen overflow-hidden flex md:flex-row flex-col items-center justify-center gap-2 md:px-10 p-4">
+            <div className="w-full max-w-screen h-full md:h-screen overflow-hidden flex md:flex-row flex-col items-center justify-center gap-2 md:px-10 p-4 mt-14">
                 <div className="w-full h-full flex flex-col gap-2">
                     <div className="w-full aspect-video border border-gray-500 overflow-hidden flex items-center justify-center relative group">
-                        <img src={mainImage} alt="HAL-7000" className="object-cover object-left-top" />
+                        {/* <img src={mainImage} alt="HAL-7000" className="object-cover object-left-top" /> */}
+                        <Image src={mainImage} alt="HAL-7000" fill className="object-cover object-left-top" />
                         <div className="absolute w-full h-full [box-shadow:inset_0_0_20px_#559] group-hover:[box-shadow:inset_0_0_80px_#559] transition-all duration-300"></div>
-                        <ArrowUpIcon className="absolute text-white rotate-45 -bottom-8 -right-8 opacity-0 group-hover:opacity-100 group-hover:bottom-2 group-hover:right-2 transition-all duration-300 hover:bg-blue-500 rounded-full p-1 cursor-pointer" size={30} />
+                        <Link href="#">
+                        <ArrowUpIcon className="absolute text-white rotate-45 bottom-2 right-2 md:-bottom-8 md:-right-8 md:group-hover:bottom-4 md:group-hover:right-4 transition-all duration-300 hover:bg-blue-700/50 bg-blue-500/50 rounded-full p-1 cursor-pointer" size={30} />
+                        </Link>
                     </div>
                     <div className="flex items-center justify-center gap-2 w-full h-full flex-1">
                         {secondaryImages && secondaryImages.slice(0, 3).map((secImg, i) => (
                             <div key={i} className="w-full max-w-78 aspect-video  border border-gray-500 overflow-hidden flex items-center group relative">
-                                <img src={secImg || ""} alt="HAL-7000" className="object-cover object-left-top" />
+                                {secImg.length>0 && (
+                                    <Image src={secImg} alt="HAL-7000" fill className="object-cover object-left-top" />
+                                )}    
                                 <div className="absolute w-full h-full [box-shadow:inset_0_0_10px_#559] group-hover:[box-shadow:inset_0_0_40px_#559] transition-all duration-300"></div>
                             </div>
                         ))}
@@ -61,7 +68,7 @@ const ProjectPlaceholder = ({
                             <p className="px-4 text-black"> C:/Projects/<span className="bg-blue-400">{fileLocationString}</span></p>
                         </div>
                         <div className="text-gray-200 px-4 h-full text-sm overflow-hidden">
-                            <div className="max-h-fit leading-[9px] -tracking-[2px] pt-2 border-b border-gray-500 text-xs" style={{ whiteSpace: "pre" }}>
+                            <div className="max-h-fit text-blue-400 leading-[7px] -tracking-[2px] pt-2 border-b border-gray-500 text-xs font-black" style={{ whiteSpace: "pre" }}>
                                 {ascii}
                             </div>
                             {description.map((desc, i) => (

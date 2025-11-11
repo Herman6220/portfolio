@@ -4,10 +4,10 @@ export async function POST(req: Request){
     try {
         const {name, email, message} = await req.json();
 
-        if(!name || !email || !message){
+        if(!email){
             return Response.json({
                 success: false,
-                message: "Invalid format."
+                message: "Email is required."
             }, {status: 400})
         }
 

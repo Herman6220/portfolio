@@ -1,125 +1,127 @@
 
-import { useState } from "react"
-import ProjectPlaceholder from "./ProjectPlaceholder";
+import { useEffect, useRef, useState } from "react"
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUp } from "lucide-react";
 
 
 
 const Projects = () => {
 
-  const [bars, setBars] = useState([10, 82, 33, 14, 54])
-  const [bars2, setBars2] = useState([80, 32, 33, 4, 74])
-  const [bars3, setBars3] = useState([80, 70, 60, 50, 40])
+  const [unveil, setUnveil] = useState(false);
+  const titleRef = useRef<HTMLDivElement>(null);
 
-  const [signatureText, setSignatureText] = useState("Wanna_cry?");
-  const [signatureText2, setSignatureText2] = useState("Ice_cream?");
-  const [signatureText3, setSignatureText3] = useState("Catharsis.");
+  useEffect(() => {
+    if (!titleRef.current) return;
 
-  const [description, setDescription] = useState([
-    "HAL 7000 at your service",
-    "Gemini based AI chatbot",
-    "Context-aware responses, maintaining conversational memory for coherent, multi-turn interactions.",
-    "Persistent memory",
-    "Chat history",
-    "",
-  ]);
-  const [description2, setDescription2] = useState([
-    "Ecommerce application",
-    "Role based access through Next Auth",
-    "LocalStorage for cart management",
-    "Razorpay for secure transactions.",
-    "Cron jobs for email notifications, and unverified user deletion.",
-    "",
-  ]);
-  const [description3, setDescription3] = useState([
-    "Video streaming platform",
-    "Video processing through Mux",
-    "tRPC for APIs",
-    "Studio management",
-    "AI background jobs",
-    "",
-  ]);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && titleRef.current) {
+          setUnveil(true);
+          observer.unobserve(titleRef.current);
+        }
+      },
+      { threshold: 0.2 }
+    )
 
-  const [mainImage, setMainImage] = useState("/hal7000main.png");
-  const [mainImage2, setMainImage2] = useState("/p1.webp");
-  const [mainImage3, setMainImage3] = useState("/project2.png");
+    observer.observe(titleRef.current);
 
-  const [secondaryImages, setSecondaryImages] = useState([
-    "/hal1.png",
-    "/hal2.png",
-    "/hal3.png",
-  ])
+    return () => observer.disconnect();
+  }, [])
 
-  const [secondaryImages2, setSecondaryImages2] = useState([
-    "/hermano1.webp",
-    "/hermano2.webp",
-    "/hermano3.webp",
-  ])
-
-  const [secondaryImages3, setSecondaryImages3] = useState([
-    
-  ])
-
-  const [techStack, setTechStack] = useState([
-    "LangGraph",
-    "Next.js",
-    "Express.js",
-    "PostgreSQL",
-    "Better Auth",
-    "",
-  ]);
-  const [techStack2, setTechStack2] = useState([
-    "Next.js",
-    "Express.js",
-    "PostgreSQL",
-    "MongoDB",
-    "RazorPay",
-    "Next Auth",
-    "",
-  ]);
-  const [techStack3, setTechStack3] = useState([
-    "Mux",
-    "Next.js",
-    "Express.js",
-    "PostgreSQL",
-    "tRPC",
-    "Upstash",
-    "UploadThing",
-    "Clerk",
-    "",
-  ]);
-
-  const ascii = `
-##   ##  #####  ##          #######  #####    #####    #####
-##   ## ##   ## ##              ## ##  #### ##  #### ##  ####   
-####### ####### ##             ##  ## ## ## ## ## ## ## ## ##     
-##   ## ##   ## ##            ##   ####  ## ####  ## ####  ##  
-##   ## ##   ## #######_______##    #####    #####    #####
-                `
-
-  const ascii2 = `
-##   ## ####### #####  ##   ## ####### ##   ## #######    
-##   ## ##      ##  ## ### ### ##   ## ###  ## ##   ##   
-####### ####### ####   ## # ## ####### ## # ## ##   ##      
-##   ## ##      ## ##  ##   ## ##   ## ##  ### ##   ## 
-##   ## ####### ##  ## ##   ## ##   ## ##   ## ####### 
-                `
-
-  const ascii3 = `
-##   ## ####### ##   ## ###### ##   ## #####  #######   
- ## ##  ##   ## ##   ##   ##   ##   ## ##  ## ##      
-  ##    ##   ## ##   ##   ##   ##   ## #####  #######       
-  ##    ##   ## ##   ##   ##   ##   ## ##  ## ##   
-  ##    ####### #######   ##   ####### #####  ####### 
-                `
-
+  const projects = [
+    {
+      image: "/p1.webp",
+      title: "Hermano",
+      description: "E-commerce application",
+      projectPageLink: "/hermano",
+    },
+    {
+      image: "/hal7000main.png",
+      title: "HAL 7000",
+      description: "AI chatbot",
+      projectPageLink: "/hal7000",
+    },
+    {
+      image: "/project2.png",
+      title: "Youtube",
+      description: "Video streaming application",
+      projectPageLink: "/youtube",
+    },
+  ]
 
   return (
-    <div>
-      <ProjectPlaceholder ascii={ascii} fileLocationString="AI_chatbot" mainImage={mainImage} secondaryImages={secondaryImages} bars={bars} setBars={setBars} description={description} techStack={techStack} signatureText={signatureText}/>
-      <div className="md:my-8 my-4 border-t border-gray-500"></div>
-      <ProjectPlaceholder ascii={ascii2} fileLocationString="E_commerce" mainImage={mainImage2} secondaryImages={secondaryImages2} bars={bars2} setBars={setBars2} description={description2} techStack={techStack2} signatureText={signatureText2}/>
-      <div className="md:my-8 my-4 border-t border-gray-500"></div>
-      <ProjectPlaceholder ascii={ascii3} fileLocationString="Video_streaming" mainImage={mainImage3} secondaryImages={secondaryImages3} bars={bars3} setBars={setBars3} description={description3} techStack={techStack3} signatureText={signatureText3}/>
+    <div className="w-full md:h-[100vh] h-full md:p-8 p-4 flex flex-col border-b border-gray-800">
+      < div className="flex max-w-fit" ref={titleRef}>
+        <div className="border-l border-t border-b border-red-500 w-2" style={{ animation: `${unveil ? "slideLeft 0.5s ease-out forwards" : ""}` }}></div>
+        <h1 className="md:text-3xl text-2xl font-oxanium text-red-200 px-4 max-w-fit" style={{ animation: `${unveil ? "appear 2s ease-out forwards" : ""}` }}>PROJECTS</h1>
+        <div className="border-r border-t border-b border-red-500 w-2" style={{ animation: `${unveil ? "slideRight 0.5s ease-out forwards" : ""}` }}></div>
+        <style>
+          {`
+              @keyframes slideLeft{
+                  from{
+                      transform: translateX(20px);
+                  }to{
+                      transform: translateX(0);
+                  }
+              }
+              @keyframes slideRight{
+                  from{
+                      transform: translateX(-20px);
+                  }to{
+                      transform: translateX(0);
+                  }
+              }
+              @keyframes appear{
+                  from{
+                      opacity: 0;
+                  }to{
+                      opacity: 1;
+                  }
+              }
+          `}
+        </style>
+      </div >
+
+      <div className="w-full h-full flex items-center justify-center py-6">
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-2 gap-y-4 items-center">
+          {projects.map((project, i) => (
+            <div key={i} className="md:p-2 p-1 flex flex-col relative">
+              <svg className="absolute w-full h-full top-0 left-0 -z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon
+                  points="0.5,0.5 99.5,0.5 99.5,82 83.5,99.5 0.5,99.5"
+                  stroke="gray"
+                  strokeWidth="1px"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+              
+                <svg className="absolute w-full h-full top-0 left-0" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <Link href={project.projectPageLink} className="group">
+                  <polygon
+                    points="85,99.5 99.5,83.5 99.5,99.5"
+                    stroke="gray"
+                    strokeWidth="1px"
+                    fill="black"
+                    vectorEffect="non-scaling-stroke"
+                    className="group-hover:fill-gray-500/50 transition-all duration-300"
+                    />
+                    </Link>
+                </svg>
+                <ArrowUp className="absolute text-white md:bottom-2 bottom-1 md:right-2 right-1 size-5 rotate-45 pointer-events-none"/>
+              <div className="aspect-video overflow-hidden border border-gray-500 bg-black">
+                <Image src={project.image} alt="hermano" width={800} height={400} />
+              </div>
+              <div className="p-2 text-white font-oxanium">
+                <h4>{project.title}</h4>
+                <p className="text-sm font-light mb-4">{project.description}</p>
+                {/* <Link href={project.projectPageLink} onClick={() => console.log("Hello")}><button className="absolute bottom-1.5 right-1.5 rounded-full p-1 bg-white text-black hover:bg-gray-200"><ArrowUp size={20} /></button></Link> */}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

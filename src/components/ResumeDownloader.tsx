@@ -4,7 +4,18 @@ import { HiArrowDown } from "react-icons/hi"
 const ResumeDownloader = () => {
   return (
     <>
-        <div className="fixed scale-80 sm:scale-100 bottom-0 right-0">
+      <style>
+        {`
+          @keyframes resumeAppear{
+            from{
+              transform: translate(270px);
+            }to{
+              transform: translate(0);
+            }
+          }
+        `}
+      </style>
+      <div className="fixed scale-80 sm:scale-100 bottom-0 right-0" style={{animation: "resumeAppear 2s ease", animationDelay: "3s", animationFillMode: "backwards"}}>
         <div className="w-64 h-16 fixed bottom-4 right-4 ">
           <svg
             viewBox="0 0 64 16"
@@ -13,7 +24,7 @@ const ResumeDownloader = () => {
           >
             <defs>
               <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#0f0" floodOpacity="1" />
+                <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#f00" floodOpacity="1" />
               </filter>
             </defs>
 
@@ -27,10 +38,10 @@ const ResumeDownloader = () => {
 
             <text
               x="55%"
-              y="65%"
-              fill="#b9f8cf"
-              fontSize="8"
-              fontFamily="Share Tech Mono"
+              y="62%"
+              fill="#f00"
+              fontSize="6"
+              fontFamily="Oxanium"
               textAnchor="middle"
               filter="url(#glow)"
             >
@@ -81,7 +92,7 @@ const ResumeDownloader = () => {
             />
           </svg>
           <a href="/api/downloadResume" download="Sankalp_Kumar_Resume.pdf">
-            <HiArrowDown className="absolute inset-0 m-auto w-5 h-5 text-green-200" filter="drop-shadow(0 0 5px #0f0)" />
+            <HiArrowDown className="absolute inset-0 m-auto w-5 h-5 text-red-200" filter="drop-shadow(0 0 5px #f00)" />
           </a>
         </div>
         <style>
