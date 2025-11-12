@@ -86,7 +86,7 @@ const Projects = () => {
       <div className="w-full h-full flex items-center justify-center py-6">
         <div className="grid md:grid-cols-3 grid-cols-1 gap-2 gap-y-4 items-center">
           {projects.map((project, i) => (
-            <div key={i} className="md:p-2 p-1 flex flex-col relative">
+            <div key={i} className="p-2 flex flex-col relative">
               <svg className="absolute w-full h-full top-0 left-0 -z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <polygon
                   points="0.5,0.5 99.5,0.5 99.5,82 83.5,99.5 0.5,99.5"
@@ -113,7 +113,7 @@ const Projects = () => {
               <div className="aspect-video overflow-hidden border border-gray-500 bg-black">
                 <Image src={project.image} alt="hermano" width={800} height={400} />
               </div>
-              <div className="p-2 text-white font-oxanium">
+              <div className="p-2 pt-4 text-white font-oxanium">
                 <h4>{project.title}</h4>
                 <p className="text-sm font-light mb-4">{project.description}</p>
                 {/* <Link href={project.projectPageLink} onClick={() => console.log("Hello")}><button className="absolute bottom-1.5 right-1.5 rounded-full p-1 bg-white text-black hover:bg-gray-200"><ArrowUp size={20} /></button></Link> */}

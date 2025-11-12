@@ -6,6 +6,9 @@ import React, { useState } from 'react'
 const Page = () => {
     const [bars, setBars] = useState([10, 82, 33, 14, 54]);
 
+    const projectPageLink = "https://hal-7000.vercel.app/"
+    const githubRepoLink = "https://github.com/Herman6220/HAL7000"
+
     const signatureText = "Wanna_cry?"
 
     const description = [
@@ -32,6 +35,8 @@ const Page = () => {
     "PostgreSQL",
     "Better Auth",
     "",
+    "",
+    "",
   ];
 
     const ascii = `
@@ -44,7 +49,7 @@ const Page = () => {
 
     return (
         <div>
-            <ProjectPlaceholder ascii={ascii} fileLocationString="AI_chatbot" mainImage={mainImage} secondaryImages={secondaryImages} bars={bars} setBars={setBars} description={description} techStack={techStack} signatureText={signatureText} />
+            <ProjectPlaceholder ascii={ascii} fileLocationString="AI_chatbot" mainImage={mainImage} secondaryImages={secondaryImages} projectPageLink={projectPageLink} githubRepoLink={githubRepoLink} bars={bars} setBars={setBars} description={description} techStack={techStack} signatureText={signatureText} />
         </div>
     )
 }

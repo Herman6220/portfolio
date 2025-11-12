@@ -4,7 +4,10 @@ import ProjectPlaceholder from '@/components/ProjectPlaceholder'
 import React, { useState } from 'react'
 
 const Page = () => {
-    const [bars2, setBars2] = useState([80, 32, 33, 4, 74])
+    const [bars2, setBars2] = useState([80, 32, 33, 4, 74]);
+
+    const projectPageLink = "https://hermano-nu.vercel.app/"
+    const githubRepoLink = "https://github.com/Herman6220/Hermano"
 
     const signatureText2 = "Ice_cream?";
 
@@ -33,6 +36,7 @@ const Page = () => {
         "RazorPay",
         "Next Auth",
         "",
+        "",
     ];
 
     const ascii2 = `
@@ -45,7 +49,7 @@ const Page = () => {
 
     return (
         <div>
-            <ProjectPlaceholder ascii={ascii2} fileLocationString="E_commerce" mainImage={mainImage2} secondaryImages={secondaryImages2} bars={bars2} setBars={setBars2} description={description2} techStack={techStack2} signatureText={signatureText2} />
+            <ProjectPlaceholder ascii={ascii2} fileLocationString="E_commerce" mainImage={mainImage2} secondaryImages={secondaryImages2} projectPageLink={projectPageLink} githubRepoLink={githubRepoLink} bars={bars2} setBars={setBars2} description={description2} techStack={techStack2} signatureText={signatureText2} />
         </div>
     )
 }

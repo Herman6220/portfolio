@@ -4,7 +4,10 @@ import ProjectPlaceholder from '@/components/ProjectPlaceholder'
 import React, { useState } from 'react'
 
 const Page = () => {
-    const [bars3, setBars3] = useState([80, 70, 60, 50, 40])
+    const [bars3, setBars3] = useState([80, 70, 60, 50, 40]);
+
+    const projectPageLink = "https://yt-umber.vercel.app/"
+    const githubRepoLink = "https://github.com/Herman6220/yt"
 
     const signatureText3 = "Catharsis.";
 
@@ -30,7 +33,6 @@ const Page = () => {
         "Upstash",
         "UploadThing",
         "Clerk",
-        "",
     ];
 
     const ascii3 = `
@@ -43,7 +45,7 @@ const Page = () => {
 
     return (
         <div>
-            <ProjectPlaceholder ascii={ascii3} fileLocationString="Video_streaming" mainImage={mainImage3} secondaryImages={secondaryImages3} bars={bars3} setBars={setBars3} description={description3} techStack={techStack3} signatureText={signatureText3} />
+            <ProjectPlaceholder ascii={ascii3} fileLocationString="Video_streaming" mainImage={mainImage3} secondaryImages={secondaryImages3} projectPageLink={projectPageLink} githubRepoLink={githubRepoLink} bars={bars3} setBars={setBars3} description={description3} techStack={techStack3} signatureText={signatureText3} />
         </div>
     )
 }

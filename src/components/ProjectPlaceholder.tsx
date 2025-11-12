@@ -8,6 +8,8 @@ interface ProjectPlaceholderProps {
     mainImage: string;
     fileLocationString: string;
     secondaryImages: string[];
+    projectPageLink: string;
+    githubRepoLink: string;
     ascii: string;
     description: string[];
     techStack: string[];
@@ -20,6 +22,8 @@ const ProjectPlaceholder = ({
     mainImage,
     fileLocationString,
     secondaryImages,
+    projectPageLink,
+    githubRepoLink,
     ascii,
     description,
     techStack,
@@ -44,15 +48,15 @@ const ProjectPlaceholder = ({
                         <Image src={mainImage} alt="HAL-7000" fill className="object-cover object-left-top" />
                         <div className="absolute w-full h-full [box-shadow:inset_0_0_20px_#559] group-hover:[box-shadow:inset_0_0_80px_#559] transition-all duration-300"></div>
                         <Link href="#">
-                        <ArrowUpIcon className="absolute text-white rotate-45 bottom-2 right-2 md:-bottom-8 md:-right-8 md:group-hover:bottom-4 md:group-hover:right-4 transition-all duration-300 hover:bg-blue-700/50 bg-blue-500/50 rounded-full p-1 cursor-pointer" size={30} />
+                            {/* <ArrowUpIcon className="absolute text-white rotate-45 bottom-2 right-2 md:-bottom-8 md:-right-8 md:group-hover:bottom-4 md:group-hover:right-4 transition-all duration-300 hover:bg-blue-700/50 bg-blue-500/50 rounded-full p-1 cursor-pointer" size={30} /> */}
                         </Link>
                     </div>
                     <div className="flex items-center justify-center gap-2 w-full h-full flex-1">
                         {secondaryImages && secondaryImages.slice(0, 3).map((secImg, i) => (
                             <div key={i} className="w-full max-w-78 aspect-video  border border-gray-500 overflow-hidden flex items-center group relative">
-                                {secImg.length>0 && (
+                                {secImg.length > 0 && (
                                     <Image src={secImg} alt="HAL-7000" fill className="object-cover object-left-top" />
-                                )}    
+                                )}
                                 <div className="absolute w-full h-full [box-shadow:inset_0_0_10px_#559] group-hover:[box-shadow:inset_0_0_40px_#559] transition-all duration-300"></div>
                             </div>
                         ))}
@@ -63,6 +67,18 @@ const ProjectPlaceholder = ({
                 </div>
 
                 <div className="w-full h-full md:max-w-[32vw] flex flex-col gap-2 font-shareTech">
+                    <div className="flex w-full h-full max-h-10 gap-1 text-white">
+                        <Link href={projectPageLink} className="w-full h-full">
+                            <button className="bg-black border border-gray-500 px-2 py-1 w-full h-full cursor-pointer">
+                                Live link
+                            </button>
+                        </Link>
+                        <Link href={githubRepoLink} className="w-full h-full">
+                            <button className="bg-black border border-gray-500 px-2 py-1 w-full h-full cursor-pointer">
+                                Code Repo
+                            </button>
+                        </Link>
+                    </div>
                     <div className="border-2 border-gray-500 h-full flex flex-col">
                         <div className="bg-gray-500/60 flex items-center max-h-7">
                             <p className="px-4 text-black"> C:/Projects/<span className="bg-blue-400">{fileLocationString}</span></p>
