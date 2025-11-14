@@ -58,7 +58,7 @@ const Bio = () => {
             </div >
             <div className="w-full h-full py-8 flex md:flex-row flex-col gap-2 items-center justify-center">
                 <div className="flex gap-2 md:h-120 h-50 w-full md:w-100">
-                    <div className="w-full h-full border border-gray-500 overflow-hidden relative">
+                    <div className="w-full h-full border border-gray-500 overflow-hidden relative group">
                         <svg className="absolute z-10 w-full h-full top-0 left-0 hidden md:block transition-opacity duration-300" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <polygon
                                 points="50,30 46,32 46,50 50,52 47,50 47,32"
@@ -66,6 +66,7 @@ const Bio = () => {
                                 strokeWidth="1px"
                                 fill="#bbb"
                                 vectorEffect="non-scaling-stroke"
+                                // className="translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"
                             />
                             <polygon
                                 points="87,30 91,32 91,50 87,52 90,50 90,32"
@@ -73,6 +74,7 @@ const Bio = () => {
                                 strokeWidth="1px"
                                 fill="#bbb"
                                 vectorEffect="non-scaling-stroke"
+                                // className="-translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"
                             />
                             <polygon
                                 points="52,30 48,32 48,50 52,52 85,52 89,50 89,32 85,30"
@@ -80,6 +82,7 @@ const Bio = () => {
                                 strokeWidth="1px"
                                 fill="#bbbbbb22"
                                 vectorEffect="non-scaling-stroke"
+                                // className="opacity-0 group-hover:opacity-100 transition-all duration-500"
                             />
                             <polygon
                                 points="20,10 16,12 16,18 20,20 78,20 82,18 82,12 78,10"
@@ -87,6 +90,7 @@ const Bio = () => {
                                 strokeWidth="1px"
                                 fill="#00000099"
                                 vectorEffect="non-scaling-stroke"
+                                // className="opacity-0 group-hover:opacity-100 transition-all duration-800"
                             />
                             <polyline
                                 points="20,20 20,24 28,28 46,28 54,32"
@@ -94,6 +98,7 @@ const Bio = () => {
                                 strokeWidth="1px"
                                 fill="none"
                                 vectorEffect="non-scaling-stroke"
+                                // className="opacity-0 group-hover:opacity-100 transition-all duration-500"
                             />
                             <polygon
                                 points="52,31 56,31 56,32.7 52,32.7"
@@ -101,6 +106,7 @@ const Bio = () => {
                                 strokeWidth="1px"
                                 fill="gray"
                                 vectorEffect="non-scaling-stroke"
+                                // className="opacity-0 group-hover:opacity-100 transition-all duration-500"
                             />
                             <polygon
                                 points="2,92 60,92 60,99 2,99"
@@ -131,14 +137,14 @@ const Bio = () => {
                                 vectorEffect="non-scaling-stroke"
                             />
 
-                            <text x={8.5} y={14} fontSize={2} fill="#ddd" transform="scale(2.5 1)" className="font-extralight">FACIAL RECOGNITION: </text>
-                            <text x={8.5} y={18} fontSize={3} fill="white" transform="scale(2.5 1)">SDK789W5Y670</text>
+                            <text x={8.5} y={14} fontSize={2} fill="#ddd" transform="scale(2.5 1)" className="font-extralight ">FACIAL RECOGNITION: </text>
+                            <text x={8.5} y={18} fontSize={3} fill="white" transform="scale(2.5 1)" className="">SDK789W5Y670</text>
                             <text x={2} y={96} fontSize={1.8} fill="#ddd" transform="scale(2.5 1)" className="font-extralight">19-09-2022</text>
                             <text x={2} y={98} fontSize={2} fill="white" transform="scale(2.5 1)">189.764.657.90</text>
-                        </svg>
+                        </svg>  
                         <Image src="/ghostSide.png" alt="" fill className="object-cover [filter:brightness(0.7)]" />
                     </div>
-                    <div className="w-full h-full border border-red-500 overflow-hidden relative bg-red-700/10 md:hover:bg-red-700/20">
+                    <div className="w-full h-full border border-red-500 overflow-hidden relative bg-red-700/10 md:hover:bg-red-700/30 transition-colors duration-300">
                         <Image src="/alex.jpg" alt="" fill className="-z-10 object-cover [filter:blur(5)]" />
                         <div className="absolute bottom-0 left-0 w-full h-10 flex items-center justify-center bg-red-900 text-red-400">
                             ACCESS DENIED

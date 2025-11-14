@@ -4,6 +4,8 @@ export async function POST(req: Request){
     try {
         const {name, email, message} = await req.json();
 
+        console.log(name, email, message);
+
         if(!email){
             return Response.json({
                 success: false,

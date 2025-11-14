@@ -6,6 +6,7 @@ import { Oxanium } from "next/font/google";
 import Footer from "../components/Footer";
 import { ToastProvider } from "./hooks/useToast";
 import localFont from "next/font/local";
+import {ReactLenis, useLenis} from "lenis/react";
 
 const echocore = localFont({
   src: [
@@ -39,12 +40,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" >
       <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" precedence="default"/>
       <body
         className={`${shareTechMono.variable} ${oxanium.variable} ${echocore.variable} antialiased`}
       >
+        <ReactLenis />
         <Navbar/>
         <ToastProvider>
         {children}

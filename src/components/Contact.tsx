@@ -5,16 +5,18 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 
 const Contact = () => {
+
     type FormData = {
-        name: string | "",
+        name: string,
         email: string,
-        message: string | "",
+        message: string,
     }
 
     const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>();
     const { showToast } = useToast();
 
     const onSubmit = async (data: FormData) => {
+        console.log(JSON.stringify(data));
         try {
             const response = await fetch("/api/contact", {
                 method: "POST",
@@ -71,7 +73,7 @@ const Contact = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full gap-4 h-full relative">
                         <input
-                            // {...register("name", { required: "Name is required!" })}
+                            {...register("name")}
                             placeholder={`${errors.name ? errors.name.message : "name"}`}
                             className={`px-4 py-2 border ${errors.name ? "border-red-500" : ""} border-gray-500 text-sm focus:outline-none text-gray-200 shadow-md shadow-black`}
                         />
@@ -86,7 +88,7 @@ const Contact = () => {
                             className={`px-4 py-2 border ${errors.email ? "border-red-900" : ""} border-gray-500 text-sm focus:outline-none text-gray-200 shadow-md shadow-black`}
                         />
                         <textarea
-                            // {...register("message", { required: "Message is required!" })}
+                            {...register("message")}
                             className={`px-4 py-2 h-full ${errors.message ? "border-red-500" : ""} text-gray-200 text-sm border border-gray-500 overflow-hidden resize-none focus:outline-none shadow-md shadow-black`}
                             placeholder={`${errors.message ? errors.message.message : "Your message..."}`}
                             rows={3}
